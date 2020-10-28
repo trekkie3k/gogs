@@ -78,7 +78,7 @@ func (db *users) Authenticate(login, password string, loginSourceID int64) (*Use
 
 	var query *gorm.DB
 	if strings.Contains(login, "@") {
-		query = db.Where("email = ?", login)
+		query = db.Where("login_name = ?", login)
 	} else {
 		query = db.Where("lower_name = ?", login)
 	}
